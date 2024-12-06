@@ -58,7 +58,7 @@ isOrdered ruls upd = b && isOrdered (drop 1 ruls) upd
 swap :: [Int] -> [Int] -> [Int]
 -- Swap a pair of elements that exist in a list with their partner
 -- swap "ab" "banana" ==> "abnbnb"
-swap pair xs = map (\case { p0 -> p1; p1 -> p0; _ -> x }) xs
+swap pair xs = map (\x -> if x==p0 then p1 else if x==p1 then p0 else x) xs
     where p0 = pair !! 0
           p1 = pair !! 1
 
